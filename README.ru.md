@@ -50,7 +50,7 @@ cd vol-chande-buttons
 gradle assembleRelease        # или открой папку в Android Studio
 ```
 
-Нужно: JDK 17, Gradle 8.10+, Android SDK 35. Результат — `app/build/outputs/apk/release/app-release.apk` (подписан debug-ключом — для сайдлоада подойдёт; для распространения используй свой keystore).
+Нужно: JDK 17, Gradle 8.10+, Android SDK 35. Результат — `app/build/outputs/apk/release/app-release.apk`
 
 Каждый пуш собирается GitHub Actions; пуш тега `v*` публикует релиз с этой версией.
 
