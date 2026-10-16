@@ -50,7 +50,7 @@ cd vol-chande-buttons
 gradle assembleRelease        # or open the folder in Android Studio
 ```
 
-Requirements: JDK 17, Gradle 8.10+, Android SDK 35. The output is `app/build/outputs/apk/release/app-release.apk` (signed with the debug key — fine for sideloading; use your own keystore if you redistribute).
+Requirements: JDK 17, Gradle 8.10+, Android SDK 35. The output is `app/build/outputs/apk/release/app-release.apk`
 
 Every push to `main` is built by GitHub Actions (`.github/workflows/build.yml`) and published as a pre-release `latest` plus a versioned release `v<versionName>` (taken from `app/build.gradle.kts`).
 
