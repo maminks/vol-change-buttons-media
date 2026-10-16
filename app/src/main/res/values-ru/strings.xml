@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VolSkip</string>
+    <string name="a11y_label">VolSkip — переключение треков</string>
+    <string name="a11y_desc">Перехватывает только кнопки громкости, пока играет музыка: удержание переключает трек, короткое нажатие меняет громкость. Содержимое экрана не читается.</string>
+    <string name="usage_hint">Удержание Vol+ — следующий трек\nУдержание Vol− — предыдущий\nКороткое нажатие — громкость как обычно</string>
+    <string name="open_settings">Открыть настройки спец. возможностей</string>
+    <string name="hold_time">Время удержания: %1$d мс</string>
+    <string name="vibrate_on_skip">Вибрация при переключении</string>
+    <string name="status_on">✅ Сервис включён</string>
+    <string name="status_off">❌ Сервис выключен — включи его в настройках</string>
+</resources>

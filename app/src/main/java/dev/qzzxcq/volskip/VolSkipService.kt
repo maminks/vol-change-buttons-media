@@ -12,9 +12,9 @@ import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 
 /**
- * Удержание Vol+ → следующий трек, удержание Vol- → предыдущий.
- * Короткое нажатие → обычная смена громкости.
- * Срабатывает только когда играет музыка.
+ * Hold Vol+ -> next track, hold Vol- -> previous track.
+ * Short press -> normal volume change.
+ * Only active while music is playing.
  */
 class VolSkipService : AccessibilityService() {
 
@@ -44,7 +44,7 @@ class VolSkipService : AccessibilityService() {
         when (event.action) {
             KeyEvent.ACTION_DOWN -> {
                 if (event.repeatCount > 0) return intercepting
-                // Не трогаем громкость звонков/уведомлений, если ничего не играет
+                // Leave ringer/notification volume alone when nothing is playing
                 if (!audio.isMusicActive) {
                     intercepting = false
                     return false

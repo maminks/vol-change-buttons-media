@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="a11y_desc">Перехватывает только кнопки громкости, пока играет музыка: удержание переключает трек, короткое нажатие меняет громкость. Содержимое экрана не читается.</string>
+    <string name="app_name">VolSkip</string>
+    <string name="a11y_label">VolSkip — track skipping</string>
+    <string name="a11y_desc">Intercepts only the volume keys while music is playing: a long press skips the track, a short press changes the volume. Screen content is never read.</string>
+    <string name="usage_hint">Hold Vol+ — next track\nHold Vol− — previous track\nShort press — volume as usual</string>
+    <string name="open_settings">Open accessibility settings</string>
+    <string name="hold_time">Hold time: %1$d ms</string>
+    <string name="vibrate_on_skip">Vibrate on skip</string>
+    <string name="status_on">✅ Service is enabled</string>
+    <string name="status_off">❌ Service is disabled — enable it in accessibility settings</string>
 </resources>

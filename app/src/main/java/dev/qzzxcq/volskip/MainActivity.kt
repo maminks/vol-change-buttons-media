@@ -25,11 +25,11 @@ class MainActivity : Activity() {
         }
 
         root.addView(TextView(this).apply {
-            text = "VolSkip"
+            text = getString(R.string.app_name)
             textSize = 26f
         })
         root.addView(TextView(this).apply {
-            text = "Удержание Vol+ — следующий трек\nУдержание Vol− — предыдущий\nКороткое нажатие — громкость"
+            text = getString(R.string.usage_hint)
             textSize = 15f
             setPadding(0, pad / 2, 0, pad)
         })
@@ -38,17 +38,17 @@ class MainActivity : Activity() {
         root.addView(status)
 
         root.addView(Button(this).apply {
-            text = "Открыть настройки спец. возможностей"
+            text = getString(R.string.open_settings)
             setOnClickListener { startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)) }
         })
 
         val delayLabel = TextView(this).apply { setPadding(0, pad, 0, 0) }
-        fun updateLabel(ms: Long) { delayLabel.text = "Время удержания: $ms мс" }
+        fun updateLabel(ms: Long) { delayLabel.text = getString(R.string.hold_time, ms.toInt()) }
         updateLabel(Prefs.longPressMs(this))
         root.addView(delayLabel)
 
         root.addView(SeekBar(this).apply {
-            max = 900 // 200..1100 мс
+            max = 900 // 200..1100 ms
             progress = (Prefs.longPressMs(this@MainActivity) - 200).toInt()
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(s: SeekBar?, p: Int, fromUser: Boolean) {
@@ -62,7 +62,7 @@ class MainActivity : Activity() {
         })
 
         root.addView(Switch(this).apply {
-            text = "Вибрация при переключении"
+            text = getString(R.string.vibrate_on_skip)
             isChecked = Prefs.vibrate(this@MainActivity)
             gravity = Gravity.CENTER_VERTICAL
             setPadding(0, pad, 0, 0)
@@ -76,6 +76,6 @@ class MainActivity : Activity() {
         super.onResume()
         val enabled = Settings.Secure.getString(contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
             ?.contains("$packageName/") == true
-        status.text = if (enabled) "✅ Сервис включён" else "❌ Сервис выключен — включи его в настройках"
+        status.text = if (enabled) getString(R.string.status_on) else getString(R.string.status_off)
     }
 }
