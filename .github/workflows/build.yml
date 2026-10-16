@@ -3,7 +3,6 @@ name: Build APK
 on:
   push:
     branches: [main]
-    tags: ["v*"]
   workflow_dispatch:
 
 permissions:
@@ -35,10 +34,14 @@ jobs:
           name: VolSkip (latest build)
           prerelease: true
           files: VolSkip.apk
-      - name: Versioned release (tags)
-        if: startsWith(github.ref, 'refs/tags/v')
+      - name: Read version
+        id: ver
+        run: echo "v=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)" >> "$GITHUB_OUTPUT"
+      - name: Versioned release
+        if: github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
-          name: VolSkip ${{ github.ref_name }}
+          tag_name: v${{ steps.ver.outputs.v }}
+          name: VolSkip v${{ steps.ver.outputs.v }}
           generate_release_notes: true
           files: VolSkip.apk
